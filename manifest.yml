@@ -1,0 +1,7 @@
+applications:
+- name: mycallsda
+memory: 256M
+host: mycallsda
+instances: 1
+disk_quota: 512M
+buildpack: sdk-for-nodejs
