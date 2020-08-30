@@ -1,0 +1,28 @@
+
+<div class="sidebar-wrapper">
+  <div class="logo">
+    <a href="javascript:void(0)" class="logo-normal">
+      <div class="logo-image-small">
+        <img src="assets/img/logo1.png">
+      </div>
+    </a>
+  </div>
+    <ul class="nav">
+        <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+            <a [routerLink]="[menuItem.path]">
+                <i class="nc-icon {{menuItem.icon}}"></i>
+                <p>{{menuItem.title}}</p>
+            </a>
+        </li>
+        <li>
+          <a href="https://covid19.who.int/">
+            <i class="nc-icon nc-globe"></i>
+            <p>COVID-19 Updates</p>
+        </a>
+        </li>
+       
+    </ul>
+    <div class="col-md-12 position-absolute" style="bottom:10px; width: 80%;left:10px">
+      <img class=" img-responsive" src="assets/img/ibmlogo.png">
+    </div>
+</div>

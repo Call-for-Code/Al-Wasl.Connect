@@ -1,0 +1,327 @@
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <ngx-loading [show]="loading" [config]="{backdropBackgroundColour:'rgba(0, 0, 0, 0.05)',animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: '#E3E3E3', backdropBorderRadius: '3px'}"></ngx-loading>
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-basket text-warning"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Total Bags</p>
+              <p class="card-title">{{rationbags}}
+                <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-refresh"></i> Update Now
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <ngx-loading [show]="loading" [config]="{backdropBackgroundColour:'rgba(0, 0, 0, 0.05)',animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: '#E3E3E3', backdropBorderRadius: '3px'}"></ngx-loading>
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-delivery-fast text-info"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Bags Distributed</p>
+              <p class="card-title">{{bagsdistributed}}
+                <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-calendar-o"></i> Last day
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <ngx-loading [show]="loading" [config]="{backdropBackgroundColour:'rgba(0, 0, 0, 0.05)',animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: '#E3E3E3', backdropBorderRadius: '3px'}"></ngx-loading>
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-satisfied text-success"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Beneficiaries</p>
+              <p class="card-title">{{beneficiaries}}
+                <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-clock-o"></i> In the last hour
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <ngx-loading [show]="loading" [config]="{backdropBackgroundColour:'rgba(0, 0, 0, 0.05)',animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: '#E3E3E3', backdropBorderRadius: '3px'}"></ngx-loading>
+        <div class="row">
+          <div class="col-5 col-md-4">
+            <div class="icon-big text-center icon-warning">
+              <i class="nc-icon nc-badge text-primary"></i>
+            </div>
+          </div>
+          <div class="col-7 col-md-8">
+            <div class="numbers">
+              <p class="card-category">Incoming Requests </p>
+              <p class="card-title">{{totalunprocessedrequests}}
+                <p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-refresh"></i> Update now
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+   <div class="col-md-4">
+    <div class="card ">
+      <div class="card-header ">
+        <h5 class="card-title">Request Statistics</h5>
+        <p class="card-category">Overall Performance</p>
+      </div>
+      <div class="card-body ">
+        <ngx-loading [show]="loading" [config]="{backdropBackgroundColour:'rgba(0, 0, 0, 0.05)',animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: '#E3E3E3', backdropBorderRadius: '3px'}"></ngx-loading>
+        <canvas id="chartRequestStatus" width="180px" height="120px"></canvas>
+      </div>
+      <div class="card-footer ">
+        <div class="legend d-inline" *ngFor="let label of requestStatusLabel" >
+        <div class="d-inline"><i class="fa fa-circle p-2" style="color: 'label.color'"></i> {{label.status}}</div>
+          <!-- <i class="fa fa-circle text-primary"></i> {{requestStatus[0].STATUS}}
+          <i class="fa fa-circle text-warning"></i> {{requestStatus[1].STATUS}}
+          <i class="fa fa-circle text-danger"></i> {{requestStatus[2].STATUS}}
+          <i class="fa fa-circle text-gray"></i> {{requestStatus[3].STATUS}} -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h5 class="card-title">Requests Completed vs Incoming Requests : All NGOs</h5>
+        <p class="card-category">on Daily Basis</p>
+      </div>
+      <div class="card-body">
+        <ngx-loading [show]="loading" [config]="{backdropBackgroundColour:'rgba(0, 0, 0, 0.05)',animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: '#E3E3E3', backdropBorderRadius: '3px'}"></ngx-loading>
+        <canvas id="requestDateChart" width="400" height="150"></canvas>
+      </div>
+      <!-- <div class="card-footer">
+        <div class="chart-legend">
+          <i class="fa fa-circle text-info"></i> Tesla Model S
+          <i class="fa fa-circle text-warning"></i> BMW 5 Series
+        </div>
+        <hr/>
+        <div class="card-stats">
+          <i class="fa fa-check"></i> Data information certified
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <div class="card card-chart">
+      <div class="card-header">
+        <h5 class="card-title">Requests Progress: {{NGONAME }}</h5>
+        <p class="card-category">on Monthly Basis</p>
+      </div>
+      <div class="card-body">
+        <ngx-loading [show]="loading" [config]="{backdropBackgroundColour:'rgba(0, 0, 0, 0.05)',animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: '#E3E3E3', backdropBorderRadius: '3px'}"></ngx-loading>
+        <canvas id="requestDateChartMonthly" width="400" height="180"></canvas>
+      </div>
+      <!-- <div class="card-footer">
+        <div class="chart-legend">
+          <i class="fa fa-circle text-info"></i> Tesla Model S
+          <i class="fa fa-circle text-warning"></i> BMW 5 Series
+        </div>
+        <hr/>
+        <div class="card-stats">
+          <i class="fa fa-check"></i> Data information certified
+        </div>
+      </div> -->
+    </div>
+  </div>
+  <div class="col-md-4">
+   <div class="card ">
+     <div class="card-header ">
+       <h5 class="card-title">State (Province) Statistics</h5>
+       <p class="card-category">Total Requests</p>
+     </div>
+     <div class="card-body ">
+       <ngx-loading [show]="loading" [config]="{backdropBackgroundColour:'rgba(0, 0, 0, 0.05)',animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: '#E3E3E3', backdropBorderRadius: '3px'}"></ngx-loading>
+       <canvas id="chartRequestStatusProvince" width="180px" height="120px"></canvas>
+     </div>
+   </div>
+ </div>
+
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header ">
+          <h5 class="card-title">Requests Details</h5>
+        <!-- <p class="card-category">Sorted by Days</p> -->
+      </div>
+      <div class="card-body table-responsive pt-0">
+        <button type="button" class="btn add-new pull-right border rounded"><i class="fa fa-search"></i> Search Citizen</button>
+        <ngx-loading [show]="loading" [config]="{backdropBackgroundColour:'rgba(0, 0, 0, 0.05)',animationType: ngxLoadingAnimationTypes.rectangleBounce, primaryColour: '#E3E3E3', backdropBorderRadius: '3px'}"></ngx-loading>
+       <table *ngIf= "tableloaded" class="table table-hover table-sm">
+           <thead class="thead-dark">
+          <tr>
+            <th scope="col" sortable="ID" (sort)="onSort($event)">Transaction #</th>
+            <th scope="col" sortable="DATE" (sort)="onSort($event)">Date</th>
+            <th scope="col" sortable="First_Name" (sort)="onSort($event)">First Name</th>
+            <th scope="col" >Social Security</th>
+            <th scope="col" >NGO Name</th>
+            <th scope="col" sortable="NO_OF_PACKAGES" (sort)="onSort($event)">Bags Requested</th> 
+            <th scope="col" sortable="STATUS" (sort)="onSort($event)">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+          </thead>
+          <tbody> 
+         
+
+          <tr *ngFor="let user of userData | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+            <th scope="row">{{ user.ID }}</th>
+            <td >{{ user.DATE.trim() }}</td>
+            <td>
+             {{ user.First_Name }}
+            </td>
+            <td>{{ user.ID_cnic }}</td>
+            <td>{{ user.Name }}</td>
+            <td>{{ user.NO_OF_PACKAGES }}</td>
+            <td><i class="fa fa-circle pr-1 {{user.STATUS == 'Completed'? 'text-success': user.STATUS == 'Requested'?'text-warning':user.STATUS=='Invalid'?'text-danger':'text-info'}}"></i>{{ user.STATUS }}</td>
+            <td>
+              <a class="edit cursor" (click)="editRequest(user.ID)" title="Edit"><i class="fa fa-eye" style="color:#18A2B8"></i></a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-between p-2">
+          <ngb-pagination [collectionSize]="userData.length" [(page)]="page" [maxSize]="10" [rotate]="true" [ellipses]="true" [boundaryLinks]="true"></ngb-pagination>
+        </div>
+        <!-- <canvas id=chartHours width="400" height="100"></canvas> -->
+      </div>
+      <!-- <div class="card-footer ">
+        <hr>
+        <div class="stats">
+          <i class="fa fa-history"></i> Updated 3 minutes ago
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="editRequestModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Request Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <form>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Transaction ID </label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="tID">
+              </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Transaction Date </label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="tDate">
+              </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">First Name </label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="tFirstName">
+              </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Last Name </label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="tLastName">
+              </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Family ID </label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="tFamilyId">
+              </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">NGO Name </label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="tNGOName">
+              </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">No of Packages </label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="tPackages">
+              </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">Status </label>
+              <div class="col-sm-8">
+                <input type="text" readonly class="form-control-plaintext" id="tStatus">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="updateTransactionButton" (click)="updateTransactionData()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
