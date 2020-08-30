@@ -69,7 +69,7 @@ Kindly follow below steps to run the application successfully
 
 ## Backend service:
 1.	Backend service is implemented in node.js
-1.	Backend server is available [here](https://github.ibm.com/mahsankhan/raabta-trust-donate/tree/backend)
+1.	Backend server is available [here](https://github.com/Call-for-Code/Al-Wasl.Connect/tree/backend)
 1.	Move into the directory and make the changes as below:
     1.	In __manifest.yml__ change name and host field to some unique value.
     1.	Please add __.env__ file with your db2 credentials 
@@ -79,7 +79,7 @@ Kindly follow below steps to run the application successfully
 
 ## Frontend service :
 1.	Frontend service is implemented in angular 9
-1.	Applicaiton frontend is available [here](https://github.ibm.com/mahsankhan/raabta-trust-donate/tree/frontend)
+1.	Applicaiton frontend is available [here](https://github.com/Call-for-Code/Al-Wasl.Connect/tree/frontend)
 1.	Update __.env__ file with db2 service credentials
 1.	Update route in env files: 
 ```bash 
