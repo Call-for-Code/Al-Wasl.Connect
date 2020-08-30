@@ -80,11 +80,7 @@ Kindly follow below steps to run the application successfully
 ## Frontend service :
 1.	Frontend service is implemented in angular 9
 1.	Applicaiton frontend is available [here](https://github.ibm.com/mahsankhan/raabta-trust-donate/tree/frontend)
-1.	Update __.env__ file with db2 service credentials & your personal/Org __MapBox__ Access Token. Get more details on [MapBox](https://www.mapbox.com/)
-```bash
-Open src folder -> environments (update .ts & .prod files  where MAPBOX_ACCESS_TOKEN is situated i.e -> 'your own mapbox Token'
-```
-
+1.	Update __.env__ file with db2 service credentials
 1.	Update route in env files: 
 ```bash 
 Open src folder -> environments (update .ts & .prod files where the backend server is URL running  eg https://trustdon....eu-gb.mybluemix.net/) 
@@ -115,8 +111,6 @@ You can find a running application at [here](https://avengers.eu-de.mybluemix.ne
 * [IBM db2 simple](https://cloud.ibm.com/catalog/services/db2)
 * [Node.js](https://nodejs.org/en/)
 * [Angular](https://angular.io/)
-* [Mapbox](https://www.mapbox.com)
-
 
 ## Version
 
