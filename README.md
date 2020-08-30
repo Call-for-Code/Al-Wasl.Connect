@@ -40,7 +40,7 @@ NGOs raised the concerns regarding the legitimacy and transparency of the distri
 
 ## Project roadmap
 
-![Roadmap](roadmap1.png)
+![Roadmap](roadmap2.png)
 
 
 ## Getting started
