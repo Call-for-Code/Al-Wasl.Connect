@@ -10,7 +10,6 @@
 1. [Getting started](#getting-started)
 1. [Live demo](#live-demo)
 1. [Built with](#built-with)
-1. [Contributing](#contributing)
 1. [Version](#versioning)
 1. [Authors](#authors)
 1. [License](#license)
@@ -118,11 +117,6 @@ You can find a running application at [here](https://avengers.eu-de.mybluemix.ne
 * [Angular](https://angular.io/)
 * [Mapbox](https://www.mapbox.com)
 
-
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Version
 
