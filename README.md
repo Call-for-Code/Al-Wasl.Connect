@@ -48,9 +48,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
+1. [IBM Account]( http://ibm.biz/C4CBeirut)
 1. [Install IBM CLI tool](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
 1. [GitHub Account](https://github.com/)
-1. [IBM Account]( http://ibm.biz/C4CBeirut)
 
 
 ### Installing
