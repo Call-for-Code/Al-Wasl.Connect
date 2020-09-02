@@ -1,4 +1,4 @@
-[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack)[![Website](https://img.shields.io/badge/View-Website-blue)](https://avengers.eu-de.mybluemix.net/)
+[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack) [![Website](https://img.shields.io/badge/View-Website-blue)](https://avengers.eu-de.mybluemix.net/)
 
 ## Contents
 
@@ -118,7 +118,7 @@ v1.0
 
 ## Authors
 
-See also the list of [contributors](https://github.ibm.com/mahsankhan/raabta-trust-donate/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Call-for-Code/Al-Wasl.Connect/graphs/contributors) who participated in this project.
 
 ## License
 
