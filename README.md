@@ -105,6 +105,17 @@ Open src folder -> environments (update .ts & .prod files where the backend serv
 
 You can find a running application at [here](https://avengers.eu-de.mybluemix.net/)
 
+__Credentials__
+
+1. Donor Login
+   - Registration # : 1234567890112
+   - password : 1234
+
+1. Government Login
+    - Username : govt
+    - password : admin
+
+
 ## Built with
 * [IBM Cloud Foundry](https://cloud.ibm.com/cloudfoundry/overview)
 * [IBM Toolchain](https://cloud.ibm.com/devops/create)
