@@ -1,7 +1,7 @@
 
 ![logo](logo1.png)
 
-[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack) [![Website](https://img.shields.io/badge/View-Website-blue)](https://avengers-trustdonate.eu-gb.mybluemix.net)
+[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack) [![Website](https://img.shields.io/badge/View-Website-blue)](https://al-wasal-connect.eu-gb.mybluemix.net/)
 
 ## Contents
 
@@ -106,7 +106,7 @@ Open src folder -> environments (update .ts & .prod files where the backend serv
 
 ## Live demo
 
-You can find a running application at [here](https://avengers-trustdonate.eu-gb.mybluemix.net)
+You can find a running application at [here](https://al-wasal-connect.eu-gb.mybluemix.net/)
 
 __Credentials__
 
