@@ -42,7 +42,6 @@ let connStr =
 //   })
 // })
 
-
 //Maps APIs 
 //shows the family affected by a user donations 
 app.post("/getFamilyLatLng", function (request, response) {
