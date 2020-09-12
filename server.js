@@ -43,7 +43,8 @@ let connStr =
 // })
 
 
-//Maps APIs
+//Maps APIs 
+//shows the family affected by a user donations 
 app.post("/getFamilyLatLng", function (request, response) {
   
   let ngoid = request.body.NGOId;
@@ -84,6 +85,7 @@ app.post("/getFamilyLatLng", function (request, response) {
  
 });
 
+//shows the ngos operating on the map 
 app.get("/getNGOLatLng", function (request, response) {
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
