@@ -18,17 +18,18 @@ app.use(function (req, res, next) {
 });
 
 let connStr =
-  "DATABASE=" +
-  process.env.DB_DATABASE +
-  ";HOSTNAME=" +
-  process.env.DB_HOSTNAME +
-  ";PORT=" +
-  process.env.DB_PORT +
-  ";PROTOCOL=TCPIP;UID=" +
-  process.env.DB_UID +
-  ";PWD=" +
-  process.env.DB_PWD +
-  ";";
+  "DATABASE=BLUDB;HOSTNAME=dashdb-txn-sbox-yp-lon02-02.services.eu-gb.bluemix.net;PORT=50000;PROTOCOL=TCPIP;UID=jlt41366;PWD=q608g+fhnlmtk8pp;";
+// "DATABASE=" +
+// process.env.DB_DATABASE +
+// ";HOSTNAME=" +
+// process.env.DB_HOSTNAME +
+// ";PORT=" +
+// process.env.DB_PORT +
+// ";PROTOCOL=TCPIP;UID=" +
+// process.env.DB_UID +
+// ";PWD=" +
+// process.env.DB_PWD +
+// ";";
 
 // app.post('/closeConnection', function(req,res){
 //   conn.close(function(err){
@@ -42,10 +43,8 @@ let connStr =
 //   })
 // })
 
-
 //Maps APIs
 app.post("/getFamilyLatLng", function (request, response) {
-  
   let ngoid = request.body.NGOId;
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
@@ -55,12 +54,12 @@ app.post("/getFamilyLatLng", function (request, response) {
         `  SELECT A.NO_OF_PACKAGES, B."Family_id", B."Lat", B."Long"
       FROM ` +
           process.env.DB_SCHEMA +
-          `.TRANSACTION A INNER JOIN `+
+          `.TRANSACTION A INNER JOIN ` +
           process.env.DB_SCHEMA +
-         `.USERS C ON C.ID = A.USER_ID 
-      INNER JOIN `+
-      process.env.DB_SCHEMA +
-     `.FAMILY B ON B."Family_id"= C."Family_id"
+          `.USERS C ON C.ID = A.USER_ID 
+      INNER JOIN ` +
+          process.env.DB_SCHEMA +
+          `.FAMILY B ON B."Family_id"= C."Family_id"
       GROUP BY A.NO_OF_PACKAGES, B."Family_id", B."Lat", B."Long",STATUS,NGO_ID
       HAVING STATUS = 'Completed' AND NGO_ID=` +
           Number(ngoid) +
@@ -75,13 +74,12 @@ app.post("/getFamilyLatLng", function (request, response) {
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
- 
 });
 
 app.get("/getNGOLatLng", function (request, response) {
@@ -102,15 +100,14 @@ app.get("/getNGOLatLng", function (request, response) {
               message: "Data Received!",
               data: data,
             });
-          })
+          });
         }
       });
     }
   });
- 
 });
 
-app.get('/getFamilyLatLngForGovernment',function (request, response) {
+app.get("/getFamilyLatLngForGovernment", function (request, response) {
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
       console.log(err);
@@ -119,12 +116,12 @@ app.get('/getFamilyLatLngForGovernment',function (request, response) {
         `  SELECT A.NO_OF_PACKAGES, B."Family_id", B."Lat", B."Long"
       FROM ` +
           process.env.DB_SCHEMA +
-          `.TRANSACTION A INNER JOIN `+
+          `.TRANSACTION A INNER JOIN ` +
           process.env.DB_SCHEMA +
-         `.USERS C ON C.ID = A.USER_ID 
-      INNER JOIN `+
-      process.env.DB_SCHEMA +
-     `.FAMILY B ON B."Family_id"= C."Family_id"
+          `.USERS C ON C.ID = A.USER_ID 
+      INNER JOIN ` +
+          process.env.DB_SCHEMA +
+          `.FAMILY B ON B."Family_id"= C."Family_id"
       GROUP BY A.NO_OF_PACKAGES, B."Family_id", B."Lat", B."Long",STATUS
       HAVING STATUS = 'Completed'`,
         function (err, data) {
@@ -137,16 +134,13 @@ app.get('/getFamilyLatLngForGovernment',function (request, response) {
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
-        })
+        }
+      );
     }
   });
-  
-  });
-
-
-
+});
 
 //DONOR APIs
 app.get("/getUsers", function (request, response) {
@@ -154,25 +148,24 @@ app.get("/getUsers", function (request, response) {
     if (err) {
       console.log(err);
     } else {
-      conn.query("SELECT * FROM " + process.env.DB_SCHEMA + ".USERS;", function (
-        err,
-        data
-      ) {
-        if (err) {
-          return response.json({ success: -2, message: err });
-        } else {
-          conn.close(function () {
-            return response.json({
-              success: 1,
-              message: "Data Received!",
-              data: data,
+      conn.query(
+        "SELECT * FROM " + process.env.DB_SCHEMA + ".USERS;",
+        function (err, data) {
+          if (err) {
+            return response.json({ success: -2, message: err });
+          } else {
+            conn.close(function () {
+              return response.json({
+                success: 1,
+                message: "Data Received!",
+                data: data,
+              });
             });
-          })
+          }
         }
-      });
+      );
     }
   });
-  
 });
 
 app.post("/getNGOCapacity", function (request, response) {
@@ -197,16 +190,15 @@ app.post("/getNGOCapacity", function (request, response) {
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
-  
 });
 
-app.post("/getNGOBeneficiaries", function(request,response){
+app.post("/getNGOBeneficiaries", function (request, response) {
   let ngoid = request.body.NGOId;
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
@@ -230,16 +222,15 @@ app.post("/getNGOBeneficiaries", function(request,response){
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
-  
 });
 
-app.get('/getNGOUnprocessedRequests', function(request,response){
+app.get("/getNGOUnprocessedRequests", function (request, response) {
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
       console.log(err);
@@ -261,14 +252,13 @@ app.get('/getNGOUnprocessedRequests', function(request,response){
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
-  
-})
+});
 
 app.post("/getUserRequest", function (request, response) {
   let NGOId = request.body.NGOId;
@@ -292,13 +282,12 @@ app.post("/getUserRequest", function (request, response) {
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
-  
 });
 
 app.post("/getDonorLogin", function (request, response) {
@@ -326,13 +315,12 @@ app.post("/getDonorLogin", function (request, response) {
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
-  
 });
 
 app.post("/getRequestStatusCountForNGO", function (request, response) {
@@ -359,18 +347,17 @@ app.post("/getRequestStatusCountForNGO", function (request, response) {
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
-  
 });
 
-app.post("/getRequestDateChart",function(request,response){
-  var mergeQuery = []
-  var ngoID = request.body.NGOId
+app.post("/getRequestDateChart", function (request, response) {
+  var mergeQuery = [];
+  var ngoID = request.body.NGOId;
 
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
@@ -381,7 +368,9 @@ app.post("/getRequestDateChart",function(request,response){
         FROM ` +
           process.env.DB_SCHEMA +
           `."TRANSACTION" GROUP BY STATUS, DATE, NGO_ID
-          HAVING  STATUS ='Completed' AND NGO_ID = `+Number(ngoID)+`
+          HAVING  STATUS ='Completed' AND NGO_ID = ` +
+          Number(ngoID) +
+          `
           ORDER BY DATE;`,
         function (err, data) {
           if (err) {
@@ -400,7 +389,7 @@ app.post("/getRequestDateChart",function(request,response){
                 if (err) {
                   return response.json({ success: -2, message: err });
                 } else {
-                  mergeQuery.push(data2)
+                  mergeQuery.push(data2);
                   conn.close(function () {
                     return response.json({
                       success: 1,
@@ -411,14 +400,12 @@ app.post("/getRequestDateChart",function(request,response){
                 }
               }
             );
-            
           }
         }
       );
     }
   });
- 
-})
+});
 
 app.post("/getTransactions", function (request, response) {
   let NGOId = request.body.NGOId;
@@ -449,16 +436,15 @@ app.post("/getTransactions", function (request, response) {
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
- 
 });
 
-app.post("/updateTransaction", function(request,response){
+app.post("/updateTransaction", function (request, response) {
   let tId = request.body.tId;
   let status = request.body.status;
   let key = request.body.key;
@@ -466,61 +452,66 @@ app.post("/updateTransaction", function(request,response){
     if (err) {
       console.log(err);
     } else {
-      conn.query("UPDATE "+process.env.DB_SCHEMA+".TRANSACTION SET STATUS= '"+status+"', NGO_ID = "+Number(key)+" where ID ="+Number(tId)+";", function (err, data) {
-        if (err){
-          return response.json({success:-2, message:err});
-        }
-        else{
-          conn.close(function () {
-            return response.json({
-              success: 1,
-              message: "Data Received!",
-              data: data,
+      conn.query(
+        "UPDATE " +
+          process.env.DB_SCHEMA +
+          ".TRANSACTION SET STATUS= '" +
+          status +
+          "', NGO_ID = " +
+          Number(key) +
+          " where ID =" +
+          Number(tId) +
+          ";",
+        function (err, data) {
+          if (err) {
+            return response.json({ success: -2, message: err });
+          } else {
+            conn.close(function () {
+              return response.json({
+                success: 1,
+                message: "Data Received!",
+                data: data,
+              });
             });
-          })
-  
+          }
         }
-    });
+      );
     }
   });
- 
- 
-   
 });
 
-app.post("/getMonthlyRequest",function(request,response){
+app.post("/getMonthlyRequest", function (request, response) {
   let NGOId = request.body.NGOId;
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
       console.log(err);
     } else {
-      conn.query(`  SELECT '01'||'-0'||MONTH("DATE")||'-'||YEAR("DATE") as date, COUNT(*) as total, STATUS
+      conn.query(
+        `  SELECT '01'||'-0'||MONTH("DATE")||'-'||YEAR("DATE") as date, COUNT(*) as total, STATUS
     FROM TRANSACTION
     GROUP BY  '01'||'-0'||MONTH("DATE")||'-'|| YEAR("DATE"),STATUS, NGO_ID
-    Having NGO_ID=`+Number(NGOId)+`;`, function (err, data) {
-      if (err){
-        return response.json({success:-2, message:err});
-      }
-      else{
-        
-        conn.close(function () {
-          return response.json({
-            success: 1,
-            message: "Data Received!",
-            data: data,
-          });
-        })
-
-      }
-  });
+    Having NGO_ID=` +
+          Number(NGOId) +
+          `;`,
+        function (err, data) {
+          if (err) {
+            return response.json({ success: -2, message: err });
+          } else {
+            conn.close(function () {
+              return response.json({
+                success: 1,
+                message: "Data Received!",
+                data: data,
+              });
+            });
+          }
+        }
+      );
     }
   });
-
-  
-   
 });
 
-app.post("/getProvinceData",function (request,response){
+app.post("/getProvinceData", function (request, response) {
   let NGOId = request.body.NGOId;
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
@@ -529,7 +520,9 @@ app.post("/getProvinceData",function (request,response){
       conn.query(
         `  SELECT P."Name", SUM(NO_OF_PACKAGES) as total
         FROM NGO N INNER JOIN TRANSACTION T ON N.ID = T.NGO_ID INNER JOIN PROVINCE P  ON P."ID" = N."province_id"
-        WHERE T.NGO_ID = `+Number(NGOId)+`
+        WHERE T.NGO_ID = ` +
+          Number(NGOId) +
+          `
         GROUP BY P."Name" ;`,
         function (err, data) {
           if (err) {
@@ -541,23 +534,19 @@ app.post("/getProvinceData",function (request,response){
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
-  
-  
- 
-})
-
-
+});
 
 //Government APIS
 
-app.get("/getNGOCapacityForGovernment", function (request, response) { //done
-  
+app.get("/getNGOCapacityForGovernment", function (request, response) {
+  //done
+
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
       console.log(err);
@@ -576,18 +565,16 @@ app.get("/getNGOCapacityForGovernment", function (request, response) { //done
                 message: "Data Received!",
                 data: data,
               });
-            })
-            
+            });
           }
         }
       );
     }
   });
- 
-  
 });
 
-app.get("/getNGOBeneficiariesForGovernment", function(request,response){//done
+app.get("/getNGOBeneficiariesForGovernment", function (request, response) {
+  //done
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
       console.log(err);
@@ -608,17 +595,19 @@ app.get("/getNGOBeneficiariesForGovernment", function(request,response){//done
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
-  
-  
 });
 
-app.get('/getNGOUnprocessedRequestsForGovernment', function(request,response){//done
+app.get("/getNGOUnprocessedRequestsForGovernment", function (
+  request,
+  response
+) {
+  //done
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
       console.log(err);
@@ -640,25 +629,22 @@ app.get('/getNGOUnprocessedRequestsForGovernment', function(request,response){//
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
-  
-  
-})
+});
 
-app.get("/getUserRequestForGovernment", function (request, response) {//done
+app.get("/getUserRequestForGovernment", function (request, response) {
+  //done
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
       console.log(err);
     } else {
       conn.query(
-        "SELECT * FROM " +
-          process.env.DB_SCHEMA +
-          ".TRANSACTION ;",
+        "SELECT * FROM " + process.env.DB_SCHEMA + ".TRANSACTION ;",
         function (err, data) {
           if (err) {
             return response.json({ success: -2, message: err });
@@ -669,17 +655,16 @@ app.get("/getUserRequestForGovernment", function (request, response) {//done
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
- 
-  
 });
 
-app.get("/getRequestStatusCountForGovernment", function (request, response) {//done
+app.get("/getRequestStatusCountForGovernment", function (request, response) {
+  //done
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
       console.log(err);
@@ -700,18 +685,16 @@ app.get("/getRequestStatusCountForGovernment", function (request, response) {//d
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
-  
-  
 });
 
-app.get("/getRequestDateChartForGovernment",function(request,response){
-  var mergeQuery = []
+app.get("/getRequestDateChartForGovernment", function (request, response) {
+  var mergeQuery = [];
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
       console.log(err);
@@ -747,19 +730,16 @@ app.get("/getRequestDateChartForGovernment",function(request,response){
                       message: "Data Received!",
                       data: mergeQuery,
                     });
-                  })
-                 
+                  });
                 }
               }
             );
-            
           }
         }
       );
     }
   });
-  
-})
+});
 
 app.get("/getTransactionsForGovernment", function (request, response) {
   ibmdb.open(connStr, function (err, conn) {
@@ -786,16 +766,15 @@ app.get("/getTransactionsForGovernment", function (request, response) {
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
-
 });
 
-app.get("/getProvinceDataForGovernment",function (request,response){
+app.get("/getProvinceDataForGovernment", function (request, response) {
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
       console.log(err);
@@ -814,39 +793,39 @@ app.get("/getProvinceDataForGovernment",function (request,response){
                 message: "Data Received!",
                 data: data,
               });
-            })
+            });
           }
         }
       );
     }
   });
+});
 
-})
-
-app.get("/getMonthlyRequestForGovernment",function(request,response){
+app.get("/getMonthlyRequestForGovernment", function (request, response) {
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
       console.log(err);
     } else {
-      conn.query(`  SELECT MONTH("DATE")||'-'||YEAR("DATE") as date, COUNT(*) as total, STATUS
+      conn.query(
+        `  SELECT MONTH("DATE")||'-'||YEAR("DATE") as date, COUNT(*) as total, STATUS
     FROM TRANSACTION
-    GROUP BY MONTH("DATE")||'-'|| YEAR("DATE"),STATUS;`, function (err, data) {
-      if (err){
-        return response.json({success:-2, message:err});
-      }
-      else{
-        conn.close(function () {
-          return response.json({
-            success: 1,
-            message: "Data Received!",
-            data: data,
-          });
-        });
-      }
-  });
+    GROUP BY MONTH("DATE")||'-'|| YEAR("DATE"),STATUS;`,
+        function (err, data) {
+          if (err) {
+            return response.json({ success: -2, message: err });
+          } else {
+            conn.close(function () {
+              return response.json({
+                success: 1,
+                message: "Data Received!",
+                data: data,
+              });
+            });
+          }
+        }
+      );
     }
   });
-    
 });
 //  let NGOId = request.body.NGOId;
 //     conn.query("SELECT * FROM "+process.env.DB_SCHEMA+".TRANSACTION where ID ="+NGOId+";", function (err, data) {
@@ -866,7 +845,7 @@ app.get("/getMonthlyRequestForGovernment",function(request,response){
 //   // openConnection();
 // });
 
- function openConnection() {
+function openConnection() {
   ibmdb.open(connStr, function (err, conn) {
     if (err) {
       console.log(err);
@@ -885,4 +864,3 @@ app.listen(8888, function () {
 
 app.listen(process.env.PORT || 8888);
 module.exports.app = app;
-
