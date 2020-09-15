@@ -64,8 +64,9 @@ Kindly follow below steps to run the application successfully
 1.	Search db2 service, select __lite plan__ and create.
 1.	Open db2 service from resource list and from left menu __manage__ click __Open Console__
 1.	Create New implicit schema
-1.	Select three dots on left, then click __Load Data__
+1.	Select three dots on top left, then click __Load Data__
 1.	Drop data .csv file, select target schema
+__NOTE__ : When data is loaded on __DATE__ field there will be a warning, please change the format to __DD/MM/YY__ .
 1.	Create new table 
 1.	Once everything is done click __Begin Load__
 
