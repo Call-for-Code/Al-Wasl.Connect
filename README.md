@@ -73,7 +73,7 @@ All csv are available [here](https://github.com/Call-for-Code/Al-Wasl.Connect/tr
 
    __NOTE__ : When data is loaded. If there is __DATE__ field, please change the Date format: __DD/MM/YYYY__ and Timestamp format:__DD/MM/YYYY H:MM TT__ 
 1.	Once everything is completed click __Begin Load__
-1. Follow steps 5-8 for other 4 csv files.
+1. Follow steps 5-9 for other 4 csv files.
 
 
 ## Backend service:
