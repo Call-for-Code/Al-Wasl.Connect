@@ -61,6 +61,7 @@ These instructions will get you a copy of the project up and running on your loc
 Kindly follow below steps to run the application successfully 
 
 ## Db2 service:
+All csv are available [here]()
 1.	Search db2 service, select __lite plan__ and create.
 1.  First step is to create __service credentials__ 
 1.	Open db2 service from resource list and from left menu __service credentials__, click __new credentials__ and then add. (We will use these credentials in .env file)  
@@ -68,9 +69,11 @@ Kindly follow below steps to run the application successfully
 1.	Select three dots on top left, then click __Load Data__
 1.	Drop data .csv file available [here](), select target schema
 1.	Kindly use defualt schema that would similar to __RGJ19757__(three letters and 4 digits)
-1. Click new __table__, if the .csv file is Transaction.csv give the table name __Transaction__
+1. Click new __table__, if the .csv file is Transaction.csv give the table name __Transaction__.
+
 __NOTE__ : When data is loaded on __DATE__ field there will be a warning, please change the Date format: __DD/MM/YYYY__ and Timestamp format:__DD/MM/YYYY H:MM TT__  
 1.	Once everything is completed click __Begin Load__
+1. Follow steps 5-7 for other 4 csv files.
 
 
 ## Backend service:
