@@ -71,7 +71,7 @@ All csv are available [here]()
 1.	Kindly use defualt schema that would similar to __RGJ19757__(three letters and 4 digits)
 1. Click new __table__, if the .csv file is Transaction.csv give the table name __Transaction__.
 
-__NOTE__ : When data is loaded on __DATE__ field there will be a warning, please change the Date format: __DD/MM/YYYY__ and Timestamp format:__DD/MM/YYYY H:MM TT__  
+   __NOTE__ : When data is loaded on __DATE__ field there will be a warning, please change the Date format: __DD/MM/YYYY__ and Timestamp format:__DD/MM/YYYY H:MM TT__ 
 1.	Once everything is completed click __Begin Load__
 1. Follow steps 5-7 for other 4 csv files.
 
