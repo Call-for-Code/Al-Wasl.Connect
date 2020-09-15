@@ -82,7 +82,8 @@ All csv are available [here](https://github.com/Call-for-Code/Al-Wasl.Connect/tr
 1.	Move into the directory and make the changes as below:
     1.	In __manifest.yml__ change name and host field to some unique value.
     1.	Please add __.env__ file with your db2 credentials 
-1.	Once  above steps are completed, pass __cf push 'name of app'__ command to create the IBM Cloud Foundry service.
+1. Then login IBM Cloud Platform from CLI    
+1.	Once  above steps are completed,must be in backend directory and pass __cf push 'name of app'__ command to create the IBM Cloud Foundry service.
 
 
 
