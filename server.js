@@ -18,18 +18,17 @@ app.use(function (req, res, next) {
 });
 
 let connStr =
-  "DATABASE=BLUDB;HOSTNAME=dashdb-txn-sbox-yp-lon02-02.services.eu-gb.bluemix.net;PORT=50000;PROTOCOL=TCPIP;UID=jlt41366;PWD=q608g+fhnlmtk8pp;";
-// "DATABASE=" +
-// process.env.DB_DATABASE +
-// ";HOSTNAME=" +
-// process.env.DB_HOSTNAME +
-// ";PORT=" +
-// process.env.DB_PORT +
-// ";PROTOCOL=TCPIP;UID=" +
-// process.env.DB_UID +
-// ";PWD=" +
-// process.env.DB_PWD +
-// ";";
+  "DATABASE=" +
+  process.env.DB_DATABASE +
+  ";HOSTNAME=" +
+  process.env.DB_HOSTNAME +
+  ";PORT=" +
+  process.env.DB_PORT +
+  ";PROTOCOL=TCPIP;UID=" +
+  process.env.DB_UID +
+  ";PWD=" +
+  process.env.DB_PWD +
+  ";";
 
 // app.post('/closeConnection', function(req,res){
 //   conn.close(function(err){
