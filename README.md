@@ -105,7 +105,7 @@ Open src folder -> environments (update .ts & .prod files where the backend serv
 
 ***NOTE : Clone the application and push it under your GitHub account and provide the URL. Because pipeline will not trigger if some changes are made in the repository.***
 
-![toolchain](toolchain.png)
+![toolchain](toolchain1.png)
 
 12.	In __Delivery Pipeline__ section , select new -> ok (it will generate a new API)
 13.	Once above steps are completed click __Create__.
