@@ -84,7 +84,8 @@ All csv are available [here](https://github.com/Call-for-Code/Al-Wasl.Connect/tr
     1.	Please add __.env__ file with your db2 credentials 
 1. Then login IBM Cloud Platform from CLI    
 1.	Once  above steps are completed,must be in backend directory and pass __cf push 'name of app'__ command to create the IBM Cloud Foundry service.
-
+1. Copy the URL example https://trustdon....eu-gb.mybluemix.net/ that will be used in  __Frontend servie__ [step 4](#frontend-service)
+? h 
 
 
 ## Frontend service :
