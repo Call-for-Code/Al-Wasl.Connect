@@ -1,7 +1,4 @@
 applications:
-    - name: fgdc
+    - name: myappxyz
       path: .
-      memory: 256M
-      instances: 1
-      disk_quota: 512M
       buildpack: staticfile_buildpack
