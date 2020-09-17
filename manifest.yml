@@ -1,7 +1,7 @@
 applications:
-- name: mycallsda
+- name: mohaned
 memory: 256M
-host: mycallsda
+host: Mashaly
 instances: 1
 disk_quota: 512M
 buildpack: sdk-for-nodejs
