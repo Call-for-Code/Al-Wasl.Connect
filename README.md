@@ -62,7 +62,7 @@ Kindly follow below steps to run the application successfully
 
 ## Db2 service:
 All csv are available [here](https://github.com/Call-for-Code/Al-Wasl.Connect/tree/master/data)
-1.	Search db2 service, select __lite plan__ and create.
+1.	Search db2 service(simple), select __lite plan__ and create.
 1.  First step is to create __service credentials__ 
 1.	Open db2 service from resource list and from left menu __service credentials__, click __new credentials__ and then add. (We will use these credentials in .env file)  
 1.  Now lets open db2 console, click __manage__ from left menu and select __Open Console__
