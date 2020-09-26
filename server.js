@@ -5,6 +5,13 @@ var app = express();
 var path = require("path");
 var bodyParser = require("body-parser");
 const ibmdb = require("ibm_db");
+const axios = require("axios").default;
+const client = require("twilio")(
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN
+);
+const VoiceResponse = require("twilio").twiml.VoiceResponse;
+const MessagingResponse = require("twilio").twiml.MessagingResponse;
 //const async = require("async");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -41,6 +48,74 @@ let connStr =
 //     }
 //   })
 // })
+app.get("/sms/:id", async (req, res) => {
+  ibmdb.open(connStr, function (err, conn) {
+    if (err) {
+      console.log(err);
+    } else {
+      conn.query(
+        "SELECT * FROM " +
+          process.env.DB_SCHEMA +
+          ".MSGS" +
+          ` WHERE USER_ID = ${req.params.id};`,
+        async function (err, data) {
+          if (err) {
+            return res.json({ success: -2, message: err });
+          } else {
+            res.json({
+              data,
+            });
+          }
+        }
+      );
+    }
+  });
+});
+
+app.post("/sms", (req, res) => {
+  const { user_id, body } = req.body;
+  ibmdb.open(connStr, function (err, conn) {
+    if (err) {
+      console.log(err);
+    } else {
+      conn.query(
+        `SELECT * FROM ${process.env.DB_SCHEMA}.USERS WHERE ID=${user_id}`,
+        (err, user) => {
+          const phone = user[0].phone.replace(/-/g, "");
+          const msg = client.messages
+            .create({
+              to: String(`+${phone}`),
+              from: "+18582833095",
+              body,
+            })
+            .then(() => {
+              console.log("Sent successfully");
+            });
+        }
+      );
+      conn.query(
+        `insert into MSGS values ( ${user_id} , '${body}' );`,
+        (err, msg) => {
+          if (err) {
+            res.json(err);
+          } else {
+            conn.close();
+            res.json(body);
+          }
+        }
+      );
+    }
+  });
+});
+
+app.post("/sms", (req, res) => {
+  const twiml = new MessagingResponse();
+
+  twiml.message("Hello world");
+
+  res.writeHead(200, { "Content-Type": "text/xml" });
+  res.end(twiml.toString());
+});
 
 //Maps APIs
 app.post("/getFamilyLatLng", function (request, response) {
@@ -165,6 +240,226 @@ app.get("/getUsers", function (request, response) {
       );
     }
   });
+});
+
+app.get("/getUsers/:id", function (request, response) {
+  ibmdb.open(connStr, function (err, conn) {
+    if (err) {
+      console.log(err);
+    } else {
+      conn.query(
+        "SELECT * FROM " +
+          process.env.DB_SCHEMA +
+          ".USERS" +
+          ` WHERE ID = ${request.params.id};`,
+        function (err, data) {
+          if (err) {
+            return response.json({ success: -2, message: err });
+          } else {
+            conn.query(
+              `SELECT * FROM ${process.env.DB_SCHEMA}.MSGS WHERE USER_ID=${data[0].ID};`,
+              (err, msgs) => {
+                if (err) {
+                  return res.json({ success: -2, message: err });
+                } else {
+                  if (data[0].phone) {
+                    const phone = data[0].phone.replace(/-/g, "");
+                    data.phone = phone;
+                  }
+                  conn.close(function () {
+                    return response.json({
+                      success: 1,
+                      message: "Data Received!",
+                      data: data,
+                      msgs,
+                    });
+                  });
+                }
+              }
+            );
+          }
+        }
+      );
+    }
+  });
+});
+
+app.post("/trans", function (req, res) {
+  const { id, status } = req.body;
+  ibmdb.open(connStr, function (err, conn) {
+    if (err) {
+      console.log(err);
+    } else {
+      conn.query(
+        "SELECT * FROM " +
+          process.env.DB_SCHEMA +
+          ".TRANSACTION" +
+          ` WHERE ID = ${id};`,
+        function (err, data) {
+          if (err) {
+            return res.json({ success: -2, message: err });
+          } else {
+            console.log(data);
+            const userId = data[0]["USER_ID"];
+            conn.query(
+              `SELECT * FROM ${process.env.DB_SCHEMA}.USERS WHERE ID=${userId}`,
+              (err, user) => {
+                if (err) {
+                  console.log(err);
+                } else {
+                  let phone;
+                  if (parseInt(id) % 2 === 0) {
+                    phone = "971544585334";
+                  } else {
+                    phone = "971509342888";
+                  }
+                  conn.close(() => {
+                    client.messages
+                      .create({
+                        to: `+${phone}`,
+                        from: "+18582833095",
+                        body: `Your transaction #${data[0]["ID"]} is now ${status}`,
+                      })
+                      .then((msg) => {
+                        res.json({
+                          data,
+                          user,
+                          phone,
+                          msg,
+                        });
+                      })
+                      .catch((err) => res.json(err));
+                  });
+                }
+              }
+            );
+          }
+        }
+      );
+    }
+  });
+});
+
+app.post("/trans/add", (req, res) => {
+  const { nop, status } = req.body;
+  ibmdb.open(connStr, function (err, conn) {
+    if (err) {
+      console.log(err);
+    } else {
+      conn.query(
+        `SELECT  *                 
+        FROM  ${process.env.DB_SCHEMA}.TRANSACTION  
+        ORDER BY ID DESC 
+        FETCH FIRST 1 ROW ONLY`,
+        (err, data) => {
+          if (err) {
+            console.log(err);
+          } else {
+            const id = parseInt(data[0]["ID"]) + 1;
+            conn.query(
+              `INSERT INTO ${process.env.DB_SCHEMA}.TRANSACTION (ID,DATE,USER_ID,NGO_ID,NO_OF_PACKAGES,STATUS) VALUES ('${id}','2020-04-23','543','2','${nop}','${status}')`,
+              (err, created) => {
+                conn.close(() => {
+                  res.json({
+                    data,
+                    id,
+                  });
+                });
+              }
+            );
+          }
+        }
+      );
+    }
+  });
+});
+
+app.post("/transaction", (req, res) => {
+  const id = req.body.id;
+  ibmdb.open(connStr, function (err, conn) {
+    if (err) {
+      console.log(err);
+    } else {
+      conn.query(
+        `SELECT  *                 
+        FROM  ${process.env.DB_SCHEMA}.TRANSACTION 
+        WHERE ID = ${id};
+        `,
+        // FETCH FIRST 1 ROW ONLY
+        (err, data) => {
+          if (err) {
+            console.log(err);
+          } else {
+            status = data[0]["STATUS"];
+            console.log(data);
+            console.log(data[0]["STATUS"]);
+            conn.close();
+            res.json({
+              status: data[0]["STATUS"],
+            });
+          }
+        }
+      );
+    }
+  });
+});
+
+app.post("/voice", (req, res) => {
+  // Use the Twilio Node.js SDK to build an XML response
+  const twiml = new VoiceResponse();
+  var status;
+  /** helper function to set up a <Gather> */
+  function gather() {
+    const gatherNode = twiml.gather({ numDigits: 5 });
+    gatherNode.say("Enter your transaction I d");
+
+    // If the user doesn't enter input, loop
+    twiml.redirect("/voice");
+  }
+
+  // If the user entered digits, process their request
+  if (req.body.Digits) {
+    twiml.say(`We will send sms with your transaction status now`);
+    ibmdb.open(connStr, function (err, conn) {
+      if (err) {
+        console.log(err);
+      } else {
+        conn.query(
+          `SELECT  *                 
+          FROM  ${process.env.DB_SCHEMA}.TRANSACTION 
+          WHERE ID = ${Number(req.body.Digits)};
+          `,
+          // FETCH FIRST 1 ROW ONLY
+          (err, data) => {
+            if (err) {
+              console.log(err);
+            } else {
+              status = data[0]["STATUS"];
+              console.log(data);
+              console.log(data[0]["STATUS"]);
+              conn.close();
+              console.log("sms:");
+              const msg = client.messages
+                .create({
+                  to: `${req.body.Caller}`,
+                  from: "+18582833095",
+                  body: `Your transaction#${data[0]["ID"]} status is ${status}`,
+                })
+                .then(() => {
+                  console.log("Sent successfully");
+                })
+                .catch((err) => console.log(err));
+            }
+          }
+        );
+      }
+    });
+  } else {
+    gather();
+  }
+
+  res.type("text/xml");
+  res.send(twiml.toString());
 });
 
 app.post("/getNGOCapacity", function (request, response) {

@@ -1,6 +1,6 @@
 applications:
 - name: alwaslbeirutuos
-memory: 70M
+memory: 130M
 host: alwaslbeirutuos
 instances: 1
 disk_quota: 512M
