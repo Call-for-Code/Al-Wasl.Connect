@@ -24,3 +24,6 @@ What we use to develop the project
 # Demo
 * Frontend - [demo](http://simple-toolchain-20200926171636942.eu-gb.mybluemix.net/#/dashboard)
 * backend(the api) - [demo](https://alwaslbeirutuos.eu-gb.mybluemix.net)
+
+# frontend after build repo
+* Github repo  - [link](https://github.com/mohammedatef555/alwaslnew)
