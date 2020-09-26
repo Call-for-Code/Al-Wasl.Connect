@@ -7,17 +7,17 @@ import { HttpClientModule, HttpClient } from '@angular/common/http'
 
 import { ToastrModule } from "ngx-toastr";
 import { AdminLayoutRoutes } from './admin-layout.routing';
-import {NgxLoadingModule} from "ngx-loading"
+import { NgxLoadingModule } from "ngx-loading"
 
-import { GovernDashboardComponent }       from '../../pages/goverdashboard/dashboard.component';
-import { DashboardComponent }       from '../../pages/dashboard/dashboard.component';
-import { UserComponent }            from '../../pages/user/user.component';
-import { TableComponent }           from '../../pages/table/table.component';
-import { ContactComponent }      from '../../pages/contact/contact.component';
-import { IconsComponent }           from '../../pages/icons/icons.component';
-import { MapsComponent }            from '../../pages/maps/maps.component';
-import { NotificationsComponent }   from '../../pages/notifications/notifications.component';
-import { UpgradeComponent }         from '../../pages/upgrade/upgrade.component';
+import { GovernDashboardComponent } from '../../pages/goverdashboard/dashboard.component';
+import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
+import { UserComponent } from '../../pages/user/user.component';
+import { TableComponent } from '../../pages/table/table.component';
+import { ContactComponent } from '../../pages/contact/contact.component';
+import { InventoryComponent } from '../../pages/inventory/inventory.component';
+import { MapsComponent } from '../../pages/maps/maps.component';
+import { NotificationsComponent } from '../../pages/notifications/notifications.component';
+import { UpgradeComponent } from '../../pages/upgrade/upgrade.component';
 import { NgbdSortableHeader } from '../../pages/dashboard/dashboard.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -39,7 +39,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     TableComponent,
     UpgradeComponent,
     ContactComponent,
-    IconsComponent,
+    InventoryComponent,
     MapsComponent,
     NotificationsComponent,
     NgbdSortableHeader
@@ -47,4 +47,4 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   providers: [HttpService]
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }

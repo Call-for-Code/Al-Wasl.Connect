@@ -10,14 +10,14 @@ export interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard',     title: 'Dashboard',         icon:'nc-bank',       class: '' , type:'donor'},
-    { path: '/government',     title: 'Dashboard',         icon:'nc-bank',       class: '' , type:'government'},
-    { path: '/maps',          title: 'Locate Entities',              icon:'nc-pin-3',      class: '' , type:'government'},
-    { path: '/maps',          title: 'Locate Users',              icon:'nc-pin-3',      class: '' , type:'donor'},
-    { path: '/icons',         title: 'Inventory',             icon:'nc-box',    class: '' , type:'donor'},
-   
-    { path: '/notifications', title: 'Notifications',     icon:'nc-bell-55',    class: '', type:'' }
-    
+    { path: '/dashboard', title: 'Dashboard', icon: 'nc-bank', class: '', type: 'donor' },
+    { path: '/government', title: 'Dashboard', icon: 'nc-bank', class: '', type: 'government' },
+    { path: '/maps', title: 'Locate Entities', icon: 'nc-pin-3', class: '', type: 'government' },
+    { path: '/maps', title: 'Locate Users', icon: 'nc-pin-3', class: '', type: 'donor' },
+    { path: '/inventory', title: 'Inventory', icon: 'nc-box', class: '', type: 'donor' },
+
+    { path: '/notifications', title: 'Notifications', icon: 'nc-bell-55', class: '', type: '' }
+
     // { path: '/user',          title: 'User Profile',      icon:'nc-single-02',  class: '' },
     // { path: '/table',         title: 'Table List',        icon:'nc-tile-56',    class: '', type:'' },
     // { path: '/typography',    title: 'Contact Us',        icon:'nc-email-85', class: '', type: 'government' }

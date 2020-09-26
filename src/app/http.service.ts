@@ -23,121 +23,125 @@ export class HttpService {
 
   //Donor Apis
 
-  getUsers(){
+  getUsers() {
     return this.http.get(environment.NODE_HOST + '/getUsers', this.httpOptions);
   }
 
-  getTransactions(ngoid){
+  getTransactions(ngoid) {
     const payload = ngoid
-    return this.http.post(environment.NODE_HOST + '/getTransactions',{ NGOId: payload }, this.httpOptions);
+    return this.http.post(environment.NODE_HOST + '/getTransactions', { NGOId: payload }, this.httpOptions);
   }
 
-  updateTransaction(tId, status,key){
+  updateTransaction(tId, status, key) {
     const payload = tId
     const statusPayload = status
     const payloadkey = key
-    return this.http.post(environment.NODE_HOST + '/updateTransaction',{ tId: payload, status: statusPayload,key:payloadkey}, this.httpOptions);
+    return this.http.post(environment.NODE_HOST + '/updateTransaction', { tId: payload, status: statusPayload, key: payloadkey }, this.httpOptions);
   }
 
-  getDonorLogin(userdata){
+  getDonorLogin(userdata) {
     const regno = userdata.regno;
     const password = userdata.password;
-    return this.http.post(environment.NODE_HOST + '/getDonorLogin',{ regno: Number(regno),pass: Number(password) }, this.httpOptions);
+    return this.http.post(environment.NODE_HOST + '/getDonorLogin', { regno: Number(regno), pass: Number(password) }, this.httpOptions);
   }
 
-  getUserRequest(ngoId){
+  getUserRequest(ngoId) {
     const payload = JSON.stringify(ngoId)
-    return this.http.post(environment.NODE_HOST + '/getUserRequest',{ NGOId: payload }, this.httpOptions);
+    return this.http.post(environment.NODE_HOST + '/getUserRequest', { NGOId: payload }, this.httpOptions);
   }
 
-  getFamilyLatLng(id){
+  getFamilyLatLng(id) {
     const idPayload = id;
-    return this.http.post(environment.NODE_HOST + '/getFamilyLatLng',{NGOId: idPayload}, this.httpOptions);
+    return this.http.post(environment.NODE_HOST + '/getFamilyLatLng', { NGOId: idPayload }, this.httpOptions);
   }
-  getFamilyLatLngForGovernment(){
+  getFamilyLatLngForGovernment() {
     return this.http.get(environment.NODE_HOST + '/getFamilyLatLngForGovernment', this.httpOptions);
   }
 
-  getNGOLatLng(){
+  getNGOLatLng() {
     return this.http.get(environment.NODE_HOST + '/getNGOLatLng', this.httpOptions);
   }
 
-  getNGOCapacity(name){
+  getNGOs() {
+    return this.http.get(environment.NODE_HOST + '/getNGOs', this.httpOptions);
+  }
+
+  getNGOCapacity(name) {
     const payload = name
-    return this.http.post(environment.NODE_HOST + '/getNGOCapacity',{ NGOId: payload }, this.httpOptions);
+    return this.http.post(environment.NODE_HOST + '/getNGOCapacity', { NGOId: payload }, this.httpOptions);
   }
 
-  getNGOBeneficiaries(id){
+  getNGOBeneficiaries(id) {
     const payload = id
-    return this.http.post(environment.NODE_HOST + '/getNGOBeneficiaries',{ NGOId: payload }, this.httpOptions);
+    return this.http.post(environment.NODE_HOST + '/getNGOBeneficiaries', { NGOId: payload }, this.httpOptions);
   }
-  getNGOUnprocessedRequests(){
+  getNGOUnprocessedRequests() {
     return this.http.get(environment.NODE_HOST + '/getNGOUnprocessedRequests', this.httpOptions);
-  
+
   }
 
-  getRequestStatusCountForNGO(regno){
+  getRequestStatusCountForNGO(regno) {
     const payload = regno
-    return this.http.post(environment.NODE_HOST + '/getRequestStatusCountForNGO',{ regno: payload }, this.httpOptions);
-  
+    return this.http.post(environment.NODE_HOST + '/getRequestStatusCountForNGO', { regno: payload }, this.httpOptions);
+
   }
 
-  getRequestDateChart(regno){
+  getRequestDateChart(regno) {
     const payload = regno
-    return this.http.post(environment.NODE_HOST + '/getRequestDateChart',{ NGOId: payload }, this.httpOptions);
+    return this.http.post(environment.NODE_HOST + '/getRequestDateChart', { NGOId: payload }, this.httpOptions);
   }
 
-  getMonthlyRequest(regno){
+  getMonthlyRequest(regno) {
     const payload = regno
-    return this.http.post(environment.NODE_HOST + '/getMonthlyRequest',{ NGOId: payload }, this.httpOptions);
- 
+    return this.http.post(environment.NODE_HOST + '/getMonthlyRequest', { NGOId: payload }, this.httpOptions);
+
   }
 
-  closeConnectionFromDB(){
+  closeConnectionFromDB() {
     return this.http.post(environment.NODE_HOST + '/closeConnection', this.httpOptions);
   }
 
 
 
   //Government APIS
-  getTransactionsForGovernment(){
+  getTransactionsForGovernment() {
     return this.http.get(environment.NODE_HOST + '/getTransactionsForGovernment', this.httpOptions);
   }
 
-  getUserRequestForGovernment(){
+  getUserRequestForGovernment() {
     return this.http.get(environment.NODE_HOST + '/getUserRequestForGovernment', this.httpOptions);
   }
-getNGOCapacityForGovernment(){
-  
+  getNGOCapacityForGovernment() {
+
     return this.http.get(environment.NODE_HOST + '/getNGOCapacityForGovernment', this.httpOptions);
   }
 
-  getNGOBeneficiariesForGovernment(){
-    
+  getNGOBeneficiariesForGovernment() {
+
     return this.http.get(environment.NODE_HOST + '/getNGOBeneficiariesForGovernment', this.httpOptions);
   }
-  getNGOUnprocessedRequestsForGovernment(){
-     
+  getNGOUnprocessedRequestsForGovernment() {
+
     return this.http.get(environment.NODE_HOST + '/getNGOUnprocessedRequestsForGovernment', this.httpOptions);
-  
+
   }
 
-  getRequestStatusCountForNGOForGovernment(){
-    
+  getRequestStatusCountForNGOForGovernment() {
+
     return this.http.get(environment.NODE_HOST + '/getRequestStatusCountForGovernment', this.httpOptions);
-  
+
   }
 
-  getRequestDateChartForGovernment(){
-    
+  getRequestDateChartForGovernment() {
+
     return this.http.get(environment.NODE_HOST + '/getRequestDateChartForGovernment', this.httpOptions);
   }
 
-  getProvinceDataForGovernment(){
+  getProvinceDataForGovernment() {
     return this.http.get(environment.NODE_HOST + '/getProvinceDataForGovernment', this.httpOptions);
   }
 
-  getMonthlyRequestForGovernment(){
+  getMonthlyRequestForGovernment() {
     return this.http.get(environment.NODE_HOST + '/getMonthlyRequestForGovernment', this.httpOptions);
   }
 }
