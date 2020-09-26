@@ -1,0 +1,8 @@
+#!/bin/ksh
+#
+# A place holder for a missing program/file
+#
+echo " "
+echo "Program/File security64/plugin/IBM/client/IBMkrb5.dylib is not ready yet. This file is"
+echo "used as a place holder for a missing file."
+exit 1

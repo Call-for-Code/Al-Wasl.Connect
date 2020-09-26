@@ -1,0 +1,9 @@
+  <div class="container">
+  <div class="card text-center" *ngFor="let user of users">
+    <h5 class="card-header">{{user.First_Name}} {{user.FLast_Name}} - Gender : {{user.Gender}}</h5>
+    <div class="card-body">
+      <h5 class="card-title">User Id: {{user.ID}}</h5>
+      <p class="card-text">Family_id {{user.Family_id}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ */
+/**
+ * @record
+ */
+export function INgxLoadingConfig() { }
+if (false) {
+    /** @type {?|undefined} */
+    INgxLoadingConfig.prototype.backdropBorderRadius;
+    /** @type {?|undefined} */
+    INgxLoadingConfig.prototype.backdropBackgroundColour;
+    /** @type {?|undefined} */
+    INgxLoadingConfig.prototype.fullScreenBackdrop;
+    /** @type {?|undefined} */
+    INgxLoadingConfig.prototype.animationType;
+    /** @type {?|undefined} */
+    INgxLoadingConfig.prototype.primaryColour;
+    /** @type {?|undefined} */
+    INgxLoadingConfig.prototype.secondaryColour;
+    /** @type {?|undefined} */
+    INgxLoadingConfig.prototype.tertiaryColour;
+    /* Skipping unhandled member: [key: string]: string | boolean | undefined;*/
+}
+export class NgxLoadingConfig {
+    /**
+     * @param {?=} config
+     */
+    constructor(config = {}) {
+        this.backdropBorderRadius = config.backdropBorderRadius;
+        this.backdropBackgroundColour = config.backdropBackgroundColour;
+        this.fullScreenBackdrop = config.fullScreenBackdrop;
+        this.animationType = config.animationType;
+        this.primaryColour = config.primaryColour;
+        this.secondaryColour = config.secondaryColour;
+        this.tertiaryColour = config.tertiaryColour;
+    }
+}
+if (false) {
+    /** @type {?} */
+    NgxLoadingConfig.prototype.backdropBorderRadius;
+    /** @type {?} */
+    NgxLoadingConfig.prototype.backdropBackgroundColour;
+    /** @type {?} */
+    NgxLoadingConfig.prototype.fullScreenBackdrop;
+    /** @type {?} */
+    NgxLoadingConfig.prototype.animationType;
+    /** @type {?} */
+    NgxLoadingConfig.prototype.primaryColour;
+    /** @type {?} */
+    NgxLoadingConfig.prototype.secondaryColour;
+    /** @type {?} */
+    NgxLoadingConfig.prototype.tertiaryColour;
+    /* Skipping unhandled member: [key: string]: string | boolean | undefined;*/
+}
+/** @type {?} */
+export const ngxLoadingAnimationTypes = {
+    chasingDots: 'chasing-dots',
+    circle: 'sk-circle',
+    circleSwish: 'circleSwish',
+    cubeGrid: 'sk-cube-grid',
+    doubleBounce: 'double-bounce',
+    none: 'none',
+    pulse: 'pulse',
+    rectangleBounce: 'rectangle-bounce',
+    rotatingPlane: 'rotating-plane',
+    threeBounce: 'three-bounce',
+    wanderingCubes: 'wandering-cubes'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmd4LWxvYWRpbmctY29uZmlnLmpzIiwic291cmNlUm9vdCI6Im5nOi8vbmd4LWxvYWRpbmcvIiwic291cmNlcyI6WyJsaWIvbmd4LWxvYWRpbmctY29uZmlnLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7QUFBQSx1Q0FTQzs7O0lBUkcsaURBQThCOztJQUM5QixxREFBa0M7O0lBQ2xDLCtDQUE2Qjs7SUFDN0IsMENBQXVCOztJQUN2QiwwQ0FBdUI7O0lBQ3ZCLDRDQUF5Qjs7SUFDekIsMkNBQXdCOzs7QUFJNUIsTUFBTSxPQUFPLGdCQUFnQjs7OztJQVV6QixZQUFZLFNBQTRCLEVBQUU7UUFDdEMsSUFBSSxDQUFDLG9CQUFvQixHQUFHLE1BQU0sQ0FBQyxvQkFBb0IsQ0FBQztRQUN4RCxJQUFJLENBQUMsd0JBQXdCLEdBQUcsTUFBTSxDQUFDLHdCQUF3QixDQUFDO1FBQ2hFLElBQUksQ0FBQyxrQkFBa0IsR0FBRyxNQUFNLENBQUMsa0JBQWtCLENBQUM7UUFDcEQsSUFBSSxDQUFDLGFBQWEsR0FBRyxNQUFNLENBQUMsYUFBYSxDQUFDO1FBQzFDLElBQUksQ0FBQyxhQUFhLEdBQUcsTUFBTSxDQUFDLGFBQWEsQ0FBQztRQUMxQyxJQUFJLENBQUMsZUFBZSxHQUFHLE1BQU0sQ0FBQyxlQUFlLENBQUM7UUFDOUMsSUFBSSxDQUFDLGNBQWMsR0FBRyxNQUFNLENBQUMsY0FBYyxDQUFDO0lBQ2hELENBQUM7Q0FDSjs7O0lBbEJHLGdEQUE4Qjs7SUFDOUIsb0RBQWtDOztJQUNsQyw4Q0FBNkI7O0lBQzdCLHlDQUF1Qjs7SUFDdkIseUNBQXVCOztJQUN2QiwyQ0FBeUI7O0lBQ3pCLDBDQUF3Qjs7OztBQWM1QixNQUFNLE9BQU8sd0JBQXdCLEdBQUc7SUFDcEMsV0FBVyxFQUFFLGNBQWM7SUFDM0IsTUFBTSxFQUFFLFdBQVc7SUFDbkIsV0FBVyxFQUFFLGFBQWE7SUFDMUIsUUFBUSxFQUFFLGNBQWM7SUFDeEIsWUFBWSxFQUFFLGVBQWU7SUFDN0IsSUFBSSxFQUFFLE1BQU07SUFDWixLQUFLLEVBQUUsT0FBTztJQUNkLGVBQWUsRUFBRSxrQkFBa0I7SUFDbkMsYUFBYSxFQUFFLGdCQUFnQjtJQUMvQixXQUFXLEVBQUUsY0FBYztJQUMzQixjQUFjLEVBQUUsaUJBQWlCO0NBQ3BDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGludGVyZmFjZSBJTmd4TG9hZGluZ0NvbmZpZyB7XHJcbiAgICBiYWNrZHJvcEJvcmRlclJhZGl1cz86IHN0cmluZztcclxuICAgIGJhY2tkcm9wQmFja2dyb3VuZENvbG91cj86IHN0cmluZztcclxuICAgIGZ1bGxTY3JlZW5CYWNrZHJvcD86IGJvb2xlYW47XHJcbiAgICBhbmltYXRpb25UeXBlPzogc3RyaW5nO1xyXG4gICAgcHJpbWFyeUNvbG91cj86IHN0cmluZztcclxuICAgIHNlY29uZGFyeUNvbG91cj86IHN0cmluZztcclxuICAgIHRlcnRpYXJ5Q29sb3VyPzogc3RyaW5nO1xyXG4gICAgW2tleTogc3RyaW5nXTogc3RyaW5nIHwgYm9vbGVhbiB8IHVuZGVmaW5lZDtcclxufVxyXG5cclxuZXhwb3J0IGNsYXNzIE5neExvYWRpbmdDb25maWcgaW1wbGVtZW50cyBJTmd4TG9hZGluZ0NvbmZpZyB7XHJcbiAgICBiYWNrZHJvcEJvcmRlclJhZGl1cz86IHN0cmluZztcclxuICAgIGJhY2tkcm9wQmFja2dyb3VuZENvbG91cj86IHN0cmluZztcclxuICAgIGZ1bGxTY3JlZW5CYWNrZHJvcD86IGJvb2xlYW47XHJcbiAgICBhbmltYXRpb25UeXBlPzogc3RyaW5nO1xyXG4gICAgcHJpbWFyeUNvbG91cj86IHN0cmluZztcclxuICAgIHNlY29uZGFyeUNvbG91cj86IHN0cmluZztcclxuICAgIHRlcnRpYXJ5Q29sb3VyPzogc3RyaW5nO1xyXG4gICAgW2tleTogc3RyaW5nXTogc3RyaW5nIHwgYm9vbGVhbiB8IHVuZGVmaW5lZDtcclxuXHJcbiAgICBjb25zdHJ1Y3Rvcihjb25maWc6IElOZ3hMb2FkaW5nQ29uZmlnID0ge30pIHtcclxuICAgICAgICB0aGlzLmJhY2tkcm9wQm9yZGVyUmFkaXVzID0gY29uZmlnLmJhY2tkcm9wQm9yZGVyUmFkaXVzO1xyXG4gICAgICAgIHRoaXMuYmFja2Ryb3BCYWNrZ3JvdW5kQ29sb3VyID0gY29uZmlnLmJhY2tkcm9wQmFja2dyb3VuZENvbG91cjtcclxuICAgICAgICB0aGlzLmZ1bGxTY3JlZW5CYWNrZHJvcCA9IGNvbmZpZy5mdWxsU2NyZWVuQmFja2Ryb3A7XHJcbiAgICAgICAgdGhpcy5hbmltYXRpb25UeXBlID0gY29uZmlnLmFuaW1hdGlvblR5cGU7XHJcbiAgICAgICAgdGhpcy5wcmltYXJ5Q29sb3VyID0gY29uZmlnLnByaW1hcnlDb2xvdXI7XHJcbiAgICAgICAgdGhpcy5zZWNvbmRhcnlDb2xvdXIgPSBjb25maWcuc2Vjb25kYXJ5Q29sb3VyO1xyXG4gICAgICAgIHRoaXMudGVydGlhcnlDb2xvdXIgPSBjb25maWcudGVydGlhcnlDb2xvdXI7XHJcbiAgICB9XHJcbn1cclxuXHJcbmV4cG9ydCBjb25zdCBuZ3hMb2FkaW5nQW5pbWF0aW9uVHlwZXMgPSB7XHJcbiAgICBjaGFzaW5nRG90czogJ2NoYXNpbmctZG90cycsXHJcbiAgICBjaXJjbGU6ICdzay1jaXJjbGUnLFxyXG4gICAgY2lyY2xlU3dpc2g6ICdjaXJjbGVTd2lzaCcsXHJcbiAgICBjdWJlR3JpZDogJ3NrLWN1YmUtZ3JpZCcsXHJcbiAgICBkb3VibGVCb3VuY2U6ICdkb3VibGUtYm91bmNlJyxcclxuICAgIG5vbmU6ICdub25lJyxcclxuICAgIHB1bHNlOiAncHVsc2UnLFxyXG4gICAgcmVjdGFuZ2xlQm91bmNlOiAncmVjdGFuZ2xlLWJvdW5jZScsXHJcbiAgICByb3RhdGluZ1BsYW5lOiAncm90YXRpbmctcGxhbmUnLFxyXG4gICAgdGhyZWVCb3VuY2U6ICd0aHJlZS1ib3VuY2UnLFxyXG4gICAgd2FuZGVyaW5nQ3ViZXM6ICd3YW5kZXJpbmctY3ViZXMnXHJcbn07XHJcbiJdfQ==

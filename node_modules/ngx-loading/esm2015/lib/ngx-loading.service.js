@@ -1,0 +1,33 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,uselessCode} checked by tsc
+ */
+import { Inject, Injectable, Optional } from '@angular/core';
+import { NgxLoadingConfig } from './ngx-loading-config';
+import * as i0 from "@angular/core";
+export class NgxLoadingService {
+    /**
+     * @param {?} config
+     */
+    constructor(config) {
+        this.config = config;
+        this.loadingConfig = this.config || new NgxLoadingConfig();
+    }
+}
+NgxLoadingService.decorators = [
+    { type: Injectable, args: [{
+                providedIn: 'root'
+            },] },
+];
+/** @nocollapse */
+NgxLoadingService.ctorParameters = () => [
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: ['loadingConfig',] }] }
+];
+/** @nocollapse */ NgxLoadingService.ngInjectableDef = i0.ɵɵdefineInjectable({ factory: function NgxLoadingService_Factory() { return new NgxLoadingService(i0.ɵɵinject("loadingConfig", 8)); }, token: NgxLoadingService, providedIn: "root" });
+if (false) {
+    /** @type {?} */
+    NgxLoadingService.prototype.loadingConfig;
+    /** @type {?} */
+    NgxLoadingService.prototype.config;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmd4LWxvYWRpbmcuc2VydmljZS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL25neC1sb2FkaW5nLyIsInNvdXJjZXMiOlsibGliL25neC1sb2FkaW5nLnNlcnZpY2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLE9BQU8sRUFBRSxNQUFNLEVBQUUsVUFBVSxFQUFFLFFBQVEsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUM3RCxPQUFPLEVBQXFCLGdCQUFnQixFQUFFLE1BQU0sc0JBQXNCLENBQUM7O0FBSzNFLE1BQU0sT0FBTyxpQkFBaUI7Ozs7SUFHNUIsWUFBeUQsTUFBeUI7UUFBekIsV0FBTSxHQUFOLE1BQU0sQ0FBbUI7UUFDaEYsSUFBSSxDQUFDLGFBQWEsR0FBRyxJQUFJLENBQUMsTUFBTSxJQUFJLElBQUksZ0JBQWdCLEVBQUUsQ0FBQztJQUM3RCxDQUFDOzs7WUFSRixVQUFVLFNBQUM7Z0JBQ1YsVUFBVSxFQUFFLE1BQU07YUFDbkI7Ozs7NENBSWMsUUFBUSxZQUFJLE1BQU0sU0FBQyxlQUFlOzs7OztJQUYvQywwQ0FBd0M7O0lBRTVCLG1DQUFzRSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEluamVjdCwgSW5qZWN0YWJsZSwgT3B0aW9uYWwgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcclxuaW1wb3J0IHsgSU5neExvYWRpbmdDb25maWcsIE5neExvYWRpbmdDb25maWcgfSBmcm9tICcuL25neC1sb2FkaW5nLWNvbmZpZyc7XHJcblxyXG5ASW5qZWN0YWJsZSh7XHJcbiAgcHJvdmlkZWRJbjogJ3Jvb3QnXHJcbn0pXHJcbmV4cG9ydCBjbGFzcyBOZ3hMb2FkaW5nU2VydmljZSB7XHJcbiAgcHVibGljIGxvYWRpbmdDb25maWc6IElOZ3hMb2FkaW5nQ29uZmlnO1xyXG5cclxuICBjb25zdHJ1Y3RvcihAT3B0aW9uYWwoKSBASW5qZWN0KCdsb2FkaW5nQ29uZmlnJykgcHJpdmF0ZSBjb25maWc6IElOZ3hMb2FkaW5nQ29uZmlnKSB7XHJcbiAgICB0aGlzLmxvYWRpbmdDb25maWcgPSB0aGlzLmNvbmZpZyB8fCBuZXcgTmd4TG9hZGluZ0NvbmZpZygpO1xyXG4gIH1cclxufVxyXG4iXX0=

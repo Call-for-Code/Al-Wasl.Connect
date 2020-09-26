@@ -1,0 +1,6 @@
+import { INgxLoadingConfig } from './ngx-loading-config';
+export declare class NgxLoadingService {
+    private config;
+    loadingConfig: INgxLoadingConfig;
+    constructor(config: INgxLoadingConfig);
+}

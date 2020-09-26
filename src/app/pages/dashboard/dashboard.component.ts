@@ -10,10 +10,13 @@ import {
 } from "@angular/core";
 import Chart from "chart.js";
 import { HttpService } from "../../http.service";
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { ngxLoadingAnimationTypes } from "ngx-loading";
 import { Router, ActivatedRoute } from "@angular/router";
+import { FormBuilder } from '@angular/forms';
 import { Observable, forkJoin } from 'rxjs';
 import { ToastrService } from "ngx-toastr";
+import { environment } from '../../../environments/environment';
 import "chartjs-plugin-labels";
 import * as _ from "lodash";
 import * as moment from "moment";
@@ -63,7 +66,7 @@ export class DashboardComponent implements OnInit {
   public NGONAME = null;
   public ngxLoadingAnimationTypes = ngxLoadingAnimationTypes;
   public toastr: ToastrService;
-  constructor(private _httpService: HttpService, private router: Router) {}
+  constructor(private _httpService: HttpService, private router: Router,private http: HttpClient) {}
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
@@ -456,11 +459,32 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json;charset=UTF-8',
+      Accept: 'application/json',
+    })
+  };
+
+  formsubmited(val){
+    this.http.post<any>(`${environment.NODE_HOST}/trans/add`, { nop: val.nop, status:val.status },this.httpOptions).subscribe(data => {
+      console.log(val);
+      console.log(data);
+      ++this.totalunprocessedrequests;
+      $("#add").modal("toggle");
+      this.getTransactionsFromDB();
+  });
+
+  }
+
   updateTransactionData() {
+    // alert(this.newStatus);
     if (this.newStatus != "") {
       if (this.previousStatus != this.newStatus) {
         let transactionID = $("#tID").val();
-        
+        this.http.post<any>(`${environment.NODE_HOST}/trans`, { id: transactionID, status:this.newStatus },this.httpOptions).subscribe(data => {
+          console.log(data)
+      });
         this._httpService
           .updateTransaction(transactionID, this.newStatus, this.NGOKEY)
           .subscribe((data) => {
