@@ -6,12 +6,14 @@ import { RegisterComponent } from './pages/register/register.component';
 import { DonorComponent } from './pages/donor/donor.component';
 import { AuthGuard } from './auth.guard';
 import { WelcomeComponent } from './welcome/welcome.component';
+import {DisplayUsersComponent} from './display-users/display-users.component';
 
 export const AppRoutes: Routes = [
   { path: 'login',           component: LoginComponent},
   { path: 'register',           component: RegisterComponent},
   { path: 'donor',           component: DonorComponent},
-  {path:'welcome', component:WelcomeComponent},
+  { path: 'welcome',         component:WelcomeComponent},
+  { path: 'display',         component:DisplayUsersComponent},
   {
     path: '',
     redirectTo: 'welcome',

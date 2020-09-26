@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  NODE_HOST: 'https://mycallsda.au-syd.mybluemix.net'
+  NODE_HOST: 'https://alwaslbeirutuos.eu-gb.mybluemix.net'
 };
 

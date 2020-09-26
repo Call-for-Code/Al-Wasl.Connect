@@ -22,7 +22,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { DonorComponent } from './pages/donor/donor.component';
+
 import { WelcomeComponent } from './welcome/welcome.component';
+import { DisplayUsersComponent } from './display-users/display-users.component';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     LoginComponent,
     RegisterComponent,
     DonorComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    DisplayUsersComponent
   ],
   imports: [
     BrowserAnimationsModule,
