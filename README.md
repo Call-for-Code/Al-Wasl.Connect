@@ -108,8 +108,9 @@ Open src folder -> environments (update .ts & .prod files where the backend serv
 ![toolchain](toolchain1.png)
 
 12.	In __Delivery Pipeline__ section , select new -> ok (it will generate a new API)
-13.	Once above steps are completed click __Create__.
-14.	This toolchain will automatically create a Cloud Foundry app for you go to resources list and check application would be up and running.
+13.   Make sure under Source repository URL field pass  GitHub __Dis__ path.
+14.	Once above steps are completed click __Create__.
+15.	This toolchain will automatically create a Cloud Foundry app for you go to resources list and check application would be up and running.
 
 ## Live demo
 
