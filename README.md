@@ -54,6 +54,7 @@ These instructions will get you a copy of the project up and running on your loc
 1. [Install IBM CLI tool](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
 1. [GitHub Account & some knowledge](https://github.com/)
 1. [Node.js installed](https://nodejs.org/en/)
+1. Clone this repo on your local machine [here](https://github.com/Call-for-Code/Al-Wasl.Connect)
 
 
 ### Installing
