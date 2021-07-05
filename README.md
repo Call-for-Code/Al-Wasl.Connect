@@ -79,7 +79,7 @@ All csv are available [here](https://github.com/Call-for-Code/Al-Wasl.Connect/tr
 
 ## Backend service:
 1.	Backend service is implemented in node.js
-1.	Backend server is available [here](https://github.com/Call-for-Code/Al-Wasl.Connect/tree/backend)
+1.	Backend server is available [here](https://github.com/Call-for-Code/Al-Wasl.Connect/tree/backend) . Make sure to clone it.
 1.	Move into the directory and make the changes as below:
     1.	In __manifest.yml__ change name and host field to some unique value.
     1.	Please add __.env__ file with your db2 credentials 
